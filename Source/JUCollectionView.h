@@ -30,8 +30,8 @@
     BOOL allowsSelection, allowsMultipleSelection;
     
 @private
-    id <JUCollectionViewDataSource> dataSource;
-    id <JUCollectionViewDelegate> delegate;
+    id <JUCollectionViewDataSource> __unsafe_unretained dataSource;
+    id <JUCollectionViewDelegate> __unsafe_unretained delegate;
     
     NSUInteger desiredNumberOfColumns, desiredNumberOfRows;
     NSUInteger numberOfColumns, numberOfRows;
@@ -65,16 +65,16 @@
 /**
  * The currently selected cells.
  **/
-@property (nonatomic, readonly) NSIndexSet *selection;
+@property (weak, nonatomic, readonly) NSIndexSet *selection;
 
 /**
  * The data source of the collection view.
  **/
-@property (nonatomic, assign) IBOutlet id <JUCollectionViewDataSource> dataSource;
+@property (nonatomic, unsafe_unretained) IBOutlet id <JUCollectionViewDataSource> dataSource;
 /**
  * The delegate of the collection view.
  **/
-@property (nonatomic, assign) IBOutlet id <JUCollectionViewDelegate> delegate;
+@property (nonatomic, unsafe_unretained) IBOutlet id <JUCollectionViewDelegate> delegate;
 
 /**
  * YES if the collection view should allow selection, otherwise NO. The default value is YES.

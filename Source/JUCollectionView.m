@@ -35,7 +35,7 @@
 
 - (NSIndexSet *)selection
 {
-    return [[selection copy] autorelease];
+    return [selection copy];
 }
 
 - (void)selectCellAtIndex:(NSUInteger)index
@@ -51,7 +51,7 @@
     if(!allowsSelection)
         return;
     
-    NSIndexSet *oldSelection = [[selection copy] autorelease];
+    NSIndexSet *oldSelection = [selection copy];
     
     if(allowsMultipleSelection)
     {
@@ -99,7 +99,7 @@
 
 - (void)deselectCellsAtIndexes:(NSIndexSet *)indexSet
 {
-    NSIndexSet *oldSelection = [[selection copy] autorelease];
+    NSIndexSet *oldSelection = [selection copy];
     [selection removeIndexes:indexSet]; 
     
     BOOL implementsSelector = [delegate respondsToSelector:@selector(collectionView:didDeselectCellAtIndex:)];
@@ -115,7 +115,7 @@
 
 - (void)deselectAllCells
 {
-    NSIndexSet *selectionCopy = [[selection copy] autorelease];
+    NSIndexSet *selectionCopy = [selection copy];
     [self deselectCellsAtIndexes:selectionCopy];
 }
 
@@ -213,11 +213,11 @@
     NSMutableArray *queue = [reusableCellQueues objectForKey:identifier];
     if([queue count] > 0)
     {
-        JUCollectionViewCell *cell = [[queue lastObject] retain];
+        JUCollectionViewCell *cell = [queue lastObject];
         [queue removeLastObject];
         
         [cell prepareForReuse];
-        return [cell autorelease];
+        return cell;
     }
     
     return nil;
@@ -481,7 +481,6 @@
 														  owner:self
 													   userInfo:nil];
 	[self addTrackingArea:area];
-	[area release];	
     
     NSClipView *clipView = [[self enclosingScrollView] contentView];
     [clipView setPostsBoundsChangedNotifications:YES];
@@ -520,12 +519,8 @@
 
 - (void)dealloc
 {
-    [reusableCellQueues release];
-    [visibleCells release];
-    [selection release];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super dealloc];
 }
 
 @end

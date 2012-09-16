@@ -67,8 +67,7 @@
 
 - (void)setImage:(NSImage *)newImage
 {
-    [image autorelease];
-    image = [newImage retain];
+    image = newImage;
     
     [self setNeedsDisplay:YES];
 }
@@ -98,21 +97,13 @@
 {
     if((self = [super initWithFrame:NSZeroRect]))
     {
-        cellIdentifier  = [identifier retain];
-        selectionColor  = [[NSColor blackColor] retain];
+        cellIdentifier  = identifier;
+        selectionColor  = [NSColor blackColor];
         drawSelection   = YES;
     }
     
     return self;
 }
 
-- (void)dealloc
-{
-    [image release];
-    [cellIdentifier release];
-    [selectionColor release];
-    
-    [super dealloc];
-}
 
 @end

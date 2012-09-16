@@ -43,12 +43,12 @@
 /**
  * The image that should be drawn at the center of the cell, or nil if you don't want a image to be drawn.
  **/ 
-@property (nonatomic, retain) NSImage *image;
+@property (nonatomic, strong) NSImage *image;
 
 /**
  * The color of the selection ring.
  **/
-@property (nonatomic, retain) NSColor *selectionColor;
+@property (nonatomic, strong) NSColor *selectionColor;
 /**
  * YES if the cell should draw an selection ring. You can set this to NO if you don't want to show a selection ring or if you provide your own. 
  * The default value is YES.

@@ -249,6 +249,7 @@
 		E9E3A34313F0A30000125FAA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JUCollectionView/JUCollectionView-Prefix.pch";
 				INFOPLIST_FILE = "JUCollectionView/JUCollectionView-Info.plist";
@@ -260,6 +261,7 @@
 		E9E3A34413F0A30000125FAA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JUCollectionView/JUCollectionView-Prefix.pch";
 				INFOPLIST_FILE = "JUCollectionView/JUCollectionView-Info.plist";

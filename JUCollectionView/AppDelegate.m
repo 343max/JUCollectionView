@@ -29,7 +29,7 @@
     JUCollectionViewCell *cell = [view dequeueReusableCellWithIdentifier:@"cell"];
     
     if(!cell)
-        cell = [[[JUCollectionViewCell alloc] initWithReuseIdentifier:@"cell"] autorelease];
+        cell = [[JUCollectionViewCell alloc] initWithReuseIdentifier:@"cell"];
     
     [cell setImage:[content objectAtIndex:index]];
     
